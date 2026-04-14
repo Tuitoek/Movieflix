@@ -30,14 +30,15 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Function to fetch movies based on search term
-  const fetchMovies = async () => {
+  const fetchMovies = async (query = '') => {
     // Set loading state and clear previous error messages
     setIsLoading(true);
     setErrorMessage('');
 
     try {
       // API endpoint for fetching popular movies (you can modify this to search based on the searchTerm)
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      const endpoint = query ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}` 
+      : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
       // Make the API request
       const response = await fetch(endpoint, API_OPTIONS);
@@ -70,8 +71,8 @@ const App = () => {
 
   // Handle movie search
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    fetchMovies(searchTerm);
+  }, [searchTerm]);
 
   return (
     <main>
