@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './App.css'
 import Search from './components/Search'
+
+// Define API base URL
+const API_BASE_URL = 'https://api.themoviedb.org/3';
+
+// Import API KEY
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+// Define API options
+const API_OPTIONS = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json', 
+    'Authorization': `Bearer ${API_KEY}`
+  }
+};
 
 const App = () => {
 
   const [searchTerm, setSearchTerm ] = useState('');
+
+  useEffect(() => {
+  
+    },[]
+  }
   return (
     <main>
       <div className='pattern'>
@@ -16,6 +36,7 @@ const App = () => {
 
           {/* Search Component with state search */}
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+         
         </div>
       </div>
 
