@@ -18,10 +18,12 @@ const API_OPTIONS = {
 };
 
 const App = () => {
-
+// Search Term State
   const [searchTerm, setSearchTerm] = useState('');
-
+// Error Message State
   const [errorMessage, setErrorMessage] = useState('');
+// Movies State
+  const [movies, setMovies] = useState([]);
 
   // Function to fetch movies based on search term
   const fetchMovies = async () => {
