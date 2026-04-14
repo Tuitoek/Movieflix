@@ -1,9 +1,11 @@
 import React from 'react';
 
-const MovieCard = () => {
+const MovieCard = ({ movie: { id, title, vote_average, 
+    poster_path, release_date, original_language } }) => {
+        
   return (
     <div>
-      /* Your code here */
+      <p key={id} className='text-white'>{title}</p>
     </div>
   );
 };
