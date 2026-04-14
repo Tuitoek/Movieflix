@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import Search from './components/Search'
+import Spinner from './components/Spinner'
 
 // Define API base URL
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -25,7 +26,7 @@ const App = () => {
   // Movies State
   const [movies, setMovies] = useState([]);
   // Loading State
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Function to fetch movies based on search term
   const fetchMovies = async () => {
@@ -92,7 +93,7 @@ const App = () => {
             ) : (
               <ul>
                 {movies.map((movie) => (
-                  <p className='text-white'>{movie.title}</p>
+                  <p key={movie.id} className='text-white'>{movie.title}</p>
                 ))}
               </ul>
             )}
