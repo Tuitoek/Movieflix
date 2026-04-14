@@ -18,12 +18,14 @@ const API_OPTIONS = {
 };
 
 const App = () => {
-// Search Term State
+  // Search Term State
   const [searchTerm, setSearchTerm] = useState('');
-// Error Message State
+  // Error Message State
   const [errorMessage, setErrorMessage] = useState('');
-// Movies State
+  // Movies State
   const [movies, setMovies] = useState([]);
+  // Loading State
+  const [isLoading, setIsLoading] = useState(false);
 
   // Function to fetch movies based on search term
   const fetchMovies = async () => {
@@ -43,7 +45,7 @@ const App = () => {
       const data = await response.json();
 
       // Error for incase no movies are found
-      if(data.response === 'False') {
+      if (data.response === 'False') {
         setErrorMessage(data.error || "Failed to fetch movies");
       }
 
