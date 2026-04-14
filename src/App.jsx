@@ -60,6 +60,9 @@ const App = () => {
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
       setErrorMessage('Error fetching movies. Please try again later.');
+    } finally {
+      // stop loading state
+      setIsLoading(false);
     }
   }
 
@@ -81,8 +84,18 @@ const App = () => {
           </header>
 
           <section className='all-movies'>
-            <h2>AllMovies</h2>
-            {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+            <h2 className='mt:[20px]'>AllMovies</h2>
+            {isLoading ? (
+              <p className='text-white'> Loading...</p>
+            ) : errorMessage ? (
+              <p className='text-red-500'>{errorMessage}</p>
+            ) : (
+              <ul>
+                {movies.map((movie) => (
+                  <p className='text-white'>{movie.title}</p>
+                ))}
+              </ul>
+            )}
           </section>
         </div>
       </div>
