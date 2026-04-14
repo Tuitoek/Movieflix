@@ -29,6 +29,10 @@ const App = () => {
 
   // Function to fetch movies based on search term
   const fetchMovies = async () => {
+    // Set loading state and clear previous error messages
+    setIsLoading(true);
+    setErrorMessage('');
+
     try {
       // API endpoint for fetching popular movies (you can modify this to search based on the searchTerm)
       const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
@@ -47,7 +51,11 @@ const App = () => {
       // Error for incase no movies are found
       if (data.response === 'False') {
         setErrorMessage(data.error || "Failed to fetch movies");
+        setMovies([]);
+        return;
       }
+
+      setMovies(data.results || []);
 
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
