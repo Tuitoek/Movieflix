@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useDebounce } from react - use
+import { useDebounce } from 'react-use'
 import './App.css'
 import Search from './components/Search'
 import Spinner from './components/Spinner'
 import MovieCard from './components/MovieCard'
+import { updateSearchCount } from './Supabase.js'
 
 // Define API base URL
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -62,6 +63,7 @@ const App = () => {
       }
 
       setMovies(data.results || []);
+      updateSearchCount(query);
 
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
@@ -78,7 +80,7 @@ const App = () => {
   }, [debouncedSearchTerm]);
 
   // Debounce search term to avoid excessive API calls
-    useDebounce(() => {
+  useDebounce(() => {
     setDebouncedSearchTerm(searchTerm);
   }, 500, [searchTerm]);
 
