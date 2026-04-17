@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useDebounce } from react - use
 import './App.css'
 import Search from './components/Search'
 import Spinner from './components/Spinner'
@@ -28,6 +29,8 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   // Loading State
   const [isLoading, setIsLoading] = useState(false);
+  // Debounce search term to avoid excessive API calls
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(' ');
 
   // Function to fetch movies based on search term
   const fetchMovies = async (query = '') => {
@@ -37,8 +40,8 @@ const App = () => {
 
     try {
       // API endpoint for fetching popular movies (you can modify this to search based on the searchTerm)
-      const endpoint = query ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}` 
-      : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      const endpoint = query ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+        : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
       // Make the API request
       const response = await fetch(endpoint, API_OPTIONS);
@@ -71,8 +74,14 @@ const App = () => {
 
   // Handle movie search
   useEffect(() => {
-    fetchMovies(searchTerm);
-  }, [searchTerm]);
+    fetchMovies(debouncedSearchTerm);
+  }, [debouncedSearchTerm]);
+
+  // Debounce search term to avoid excessive API calls
+    useDebounce(() => {
+    setDebouncedSearchTerm(searchTerm);
+  }, 500, [searchTerm]);
+
 
   return (
     <main>
