@@ -53,16 +53,17 @@ Movieflix/
 ```
 
 ##  Getting Started
-*Prerequisites*
+**Prerequisites**
+
 Make sure you have installed
 * Node.js
 * npm
-* Git
+* Github
 
 **Installation**
 - Clone the respository
 ```ruby
-git clone [https://github.com/Tuitoek/Movieflix.git](#)
+git clone https://github.com/Tuitoek/Movieflix.git
 ```
 
 - Navigate to the project directory
@@ -81,3 +82,23 @@ npm install
 ```ruby
 npm run dev
 ```
+- Open the local development URL provided by Vite in your browser.
+```ruby
+https://localhost:5000
+```
+
+## Environment Variables
+If your TMDB API key is stored as an environment variable, create a .env file in the root directory:
+
+``` ruby
+VITE_TMDB_API_KEY=your_api_key
+VITE_SUPABASE_URL = your_supabase_url
+VITE_SUPABASE_ANON_KEY = your_supabase_anon_key
+```
+**Note**
+*Do not commit your .env file or expose your API key in repo*
+
+## Author
+*Sarah Tuitoek*
+
+*If you like the project, consider giving the repository a star!*
