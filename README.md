@@ -20,7 +20,7 @@ This project was built to strengthen my understanding in React, API integration,
 
 ## Tech Stack
 | **Technology** |**Purpose**                   |
-|:-----------|:--------------------------------:|
+|:-----------|:---------------------------------|
 |React       |Frontend development              |
 |Javascript  |Application logic                 |
 |Vite        |Development server and build tool |
@@ -28,4 +28,20 @@ This project was built to strengthen my understanding in React, API integration,
 |Github      |Version Control                   |
 |Netlify     |Deployment                        |
 |Supabase    |Cloud Storage                     |
- 
+
+
+## Project Structure
+Movieflix/ 
+├── public/ 
+├── src/ │ 
+|   ├── assets/ 
+|   ├── components/ 
+│   ├── ... 
+│   ├── App.jsx 
+│   └── main.jsx 
+├── .gitignore 
+├── eslint.config.js 
+├── index.html 
+├── package.json 
+├── vite.config.js 
+└── README.md
