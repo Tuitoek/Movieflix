@@ -31,6 +31,7 @@ This project was built to strengthen my understanding in React, API integration,
 
 
 ## Project Structure
+```text
 Movieflix/ 
 ├── public/ 
 ├── src/ │ 
@@ -45,3 +46,4 @@ Movieflix/
 ├── package.json 
 ├── vite.config.js 
 └── README.md
+```
