@@ -19,10 +19,11 @@ This project was built to strengthen my understanding in React, API integration,
 * Deployed and accessible online
 
 ## Tech Stack
-| :--- Technology |:---: Purpose|
-|:--- React       |:---: Frontend development|
-|:--- Javascript  |:---: Application logic|
-|:--- Vite        |:---: Development server and build tool|
-|:--- Tailwind CSS|:---: Styling and responsive design|
-|:--- Github      |:---: Version Control|
-|:--- Netlify     |:---: Deployment|
+| Technology |Purpose|
+| React      |Frontend development|
+|Javascript  |Application logic|
+| Vite       |Development server and build tool|
+|Tailwind CSS|Styling and responsive design|
+|Github      |Version Control|
+| Netlify    |Deployment|
+|Supabase    |Cloud Storage|
