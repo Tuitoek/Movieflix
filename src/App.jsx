@@ -63,10 +63,14 @@ const App = () => {
       }
 
       setMovies(data.results || []);
-      updateSearchCount(query);
+      // updateSearchCount(query);
+      if (query && data.results.length > 0) {
+    // Only call this if you actually have a movie object!
+    updateSearchCount(searchTerm,data.results [0]); 
+  }
 
     } catch (error) {
-      console.error(`Error fetching movies: ${error}`);
+      console.error(`Error fetching moviesF ${error}`);
       setErrorMessage('Error fetching movies. Please try again later.');
     } finally {
       // stop loading state
