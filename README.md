@@ -37,13 +37,47 @@ Movieflix/
 ├── src/ │ 
 |   ├── assets/ 
 |   ├── components/ 
-│   ├── ... 
+|       ├── MovieCards.jsx
+|       ├── Search.jsx
+|       ├── Spinner.jsx
+│   ├── App.css
 │   ├── App.jsx 
 │   └── main.jsx 
+|   ├── Supabase.js
 ├── .gitignore 
 ├── eslint.config.js 
 ├── index.html 
 ├── package.json 
 ├── vite.config.js 
 └── README.md
+```
+
+##  Getting Started
+*Prerequisites*
+Make sure you have installed
+* Node.js
+* npm
+* Git
+
+**Installation**
+- Clone the respository
+```ruby
+git clone [https://github.com/Tuitoek/Movieflix.git](#)
+```
+
+- Navigate to the project directory
+```ruby
+cd Movieflix
+```
+
+- Install the dependencies:
+
+```ruby
+npm install
+```
+
+- Start the development server:
+
+```ruby
+npm run dev
 ```
